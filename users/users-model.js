@@ -4,7 +4,8 @@ const db = require('../database/db-config.js');
 module.exports = {
     findAll,
     register,
-    findById
+    findById,
+    findBy
 }
 
 //returns all users
@@ -28,3 +29,9 @@ function findById(id){
         .first();
 }
 
+
+function findBy(filter){
+    return db('users')
+    .select('id','username', 'password')
+    .where(filter)
+}

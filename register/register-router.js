@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const user = req.body;
+    let user = req.body;
+    console.log(user);
     // converts the password into hash before sending to database
     const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
@@ -21,7 +22,7 @@ router.post('/', (req, res) => {
         .catch(error => {
             res.status(500).json(error);
         })
-})
+});
 
 
 module.exports = router;

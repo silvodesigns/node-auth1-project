@@ -1,24 +1,13 @@
 const express = require('express');
 const server = express();
 
+const authRouter = require("../auth/auth-router.js");
+
+server.use("/api/auth", authRouter);
+
 server.get('/', (req, res) => {
     res.send('Hello from Express');
 });
-
-
-server.post('/register', (req, res) => {
-    res.send('Hello from Express');
-});
-
-
-server.get('/login', (req, res) => {
-    res.send('Hello from Express');
-});
-
-server.get('/users', (req, res) => {
-    res.send('Hello from Express');
-});
-
 
 
 

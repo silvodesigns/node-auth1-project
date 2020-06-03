@@ -1,14 +1,4 @@
-const http = require('http');
-const hostname = "127.0.0.1";
-const port = 3000;
+const server = require('./api/server.js');
 
-const server = http.createServer((req, res) =>{
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end("Hello API");
-});
-
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}`);
-});
+const port = process.env.PORT || 3000;
+server.listen(port, () => console.log(`\n** Running on port ${port} **\n`));
